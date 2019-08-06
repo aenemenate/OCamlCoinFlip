@@ -1,0 +1,19 @@
+opam-version: "2.0"
+version: "~dev"
+synopsis: "Coin flip translated from Scala: https://alvinalexander.com/scala/fp-book/functional-game-with-a-little-state"
+maintainer: "Tristan Williams <aenemenate@Tristan-Inspiron-1525>"
+authors: "Tristan Williams <aenemenate@Tristan-Inspiron-1525>"
+license: ""
+homepage: ""
+bug-reports: ""
+depends: [
+  "ocaml" {>= "4.08.0"}
+]
+build: [
+  ["./configure" "--prefix=%{prefix}%"]
+  [make]
+]
+dev-repo: "git+https://github.com/aenemenate/OCamlCoinFlip"
+url {
+  src: "file://./coin_flip"
+}

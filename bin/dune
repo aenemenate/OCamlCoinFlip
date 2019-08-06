@@ -1,0 +1,4 @@
+(executable
+ (name main)           ; The name of your entry file, minus the .ml
+ (public_name CoinFlip) ; Whatever you like, as far as I can tell
+ (libraries lib))      ; Express a dependency on the "lib" module
