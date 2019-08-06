@@ -3,6 +3,17 @@ type gameState = {
   num_correct_guesses: int ;
 }
 
+let update_game_state : gameState -> bool -> gameState = fun game_state correct_guess ->
+  match correct_guess with
+  | true  -> {
+              num_flips = game_state.num_flips + 1; 
+              num_correct_guesses = game_state.num_correct_guesses + 1; 
+             }
+  | false -> {
+              num_flips = game_state.num_flips + 1; 
+              num_correct_guesses = game_state.num_correct_guesses; 
+             }
+
 let show_prompt () = print_endline "(h)eads, (t)ails, or (q)uit: "
 
 let get_user_input () = (String.capitalize_ascii (read_line ()))
@@ -13,7 +24,7 @@ let parse_flip_result flip = match flip with
   | _ -> "Invalid input"
 
 let print_game_state (game_state : gameState) = 
-  print_endline (String.concat (String.concat  (string_of_int game_state.num_flips) ["#Flips: ";", #Correct: "]) [""; string_of_int game_state.num_correct_guesses])
+  print_endline (String.concat (String.concat  (string_of_int game_state.num_flips) ["# Flips: ";", # Correct: "]) [""; string_of_int game_state.num_correct_guesses])
     
 let print_game_state_with_flips (printable_result : string)  (game_state : gameState) = 
   print_endline (String.concat "Flip was " ["";printable_result]);
